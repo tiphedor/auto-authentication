@@ -20,4 +20,4 @@ delpoy:
   script: npm run release
   on:
     branch: master
-    tags: /^v(\d+)\.(\d+)\.(\d+)$/
+    tags: true
