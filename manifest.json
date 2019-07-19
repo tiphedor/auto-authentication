@@ -1,12 +1,12 @@
 {
 	"manifest_version": 2,
-	"name": "Auth Basic Helper",
+	"name": "Auto Authentication",
 	"version": "0.0.1",
-	"description": "Automatically adds the Auth-basic headers when accessing certain sites.",
+	"description": "Automatically authenticate basic auth / headers-based authentication when accessing certain sites.",
 	"permissions": [
 		"webRequest",
-		"<all_urls>",
 		"webRequestBlocking",
+		"<all_urls>",
 		"storage"
 	],
 	"background": {
