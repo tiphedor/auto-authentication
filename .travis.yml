@@ -2,6 +2,9 @@ language: node_js
 node_js:
   - "11"
 
+env:
+  - EXTENSION_ID=iemlhflmgkgdhionodkeoljbkkgkmlnp
+
 cache:
   yarn: true
   npm: true
@@ -12,3 +15,9 @@ install:
 script:
   - echo it works!
  
+delpoy:
+  provider: script
+  script: npm run release
+  on:
+    branch: master
+    tag: /^v(\d+)\.(\d+)\.(\d+)$/

@@ -8,5 +8,8 @@
   "private": false,
   "dependencies": {
     "chrome-webstore-upload-cli": "^1.2.0"
+  },
+  "scripts": {
+    "release": "webstore upload --source=. --auto-publish"
   }
 }
