@@ -1,0 +1,19 @@
+{
+	"manifest_version": 2,
+	"name": "Auth Basic Helper",
+	"version": "0.0.1",
+	"description": "Automatically adds the Auth-basic headers when accessing certain sites.",
+	"permissions": [
+		"webRequest",
+		"<all_urls>",
+		"webRequestBlocking",
+		"storage"
+	],
+	"background": {
+		"scripts": ["background.js"],
+		"persistent": true
+	},
+	"browser_action": {
+		"default_popup": "popup.html"
+	}
+}

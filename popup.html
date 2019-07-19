@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="/mui.min.css" />
+	
+	<style>
+		.formWrapper {
+			padding: 20px;
+			padding-top: 90px;
+		}
+		
+		.formSubimtButton {
+			width: 100%;
+		}
+		
+		body {
+			/* Sets a minimum height/width for the Chrome popup */
+			width: 700px;
+			height: 600px;
+		}
+		
+		.tokenListItem {
+			margin: 0;
+		}
+		
+		.btnDelete {
+			
+		}
+
+		.noTokensMessage {
+			margin-top: 190px;
+			text-align: center;
+		}
+		
+		.tokenLabel {
+			padding-top: 10px;
+			font-size: 1.1em;
+		}
+
+		.appBar {
+			font-size: 1.8em;
+			padding-left: 20px
+		}
+
+		.mui-tabs__bar > li > a {
+			cursor: pointer;
+		}
+
+		.okMessage {
+			display: none;
+			color: green;
+		}
+		.errorMessage {
+			display: none;
+			color: red;
+		}
+
+		.list {
+			overflow-y: auto;
+			height: 480px;
+		}
+	</style>
+</head>
+<body>
+	<div class="mui-appbar app">
+		<table>
+			<tr>
+				<td class="mui--appbar-height appBar">Auto Authentication</td>
+			</tr>
+		</table>
+	</div>		
+	
+	
+	<ul class="mui-tabs__bar mui-tabs__bar--justified">
+		<li>
+			<a data-mui-toggle="tab" data-mui-controls="pane-justified-1">
+				Tokens List
+			</a>
+		</li>
+
+		<li class="mui--is-active">
+			<a data-mui-toggle="tab" data-mui-controls="pane-justified-2">
+				Add New
+			</a>
+		</li>
+	</ul>
+
+	<div class="mui-divider"></div>
+
+	<!-- Tokens List Tab -->
+	<div class="mui-tabs__pane" id="pane-justified-1">
+		<div class="list"></div>
+	</div>
+	
+	<!-- Add New Tab -->
+	<div class="formWrapper mui-tabs__pane  mui--is-active " id="pane-justified-2">
+
+		<div class='errorMessage'>There was an error, please check your parameters.</div>
+		<div class='okMessage'>Success !</div>
+
+		<div class="mui-textfield">
+			<input type="text" class="url" placeholder="Site domain (example.com) / RegEx">
+		</div>
+
+		<div class="mui-textfield">
+			<input type="text" class="authBasicUsername" placeholder="Username">
+		</div>
+
+		<div class="mui-textfield">
+			<input type="text" class="authBasicPassword" placeholder="Password">
+		</div>
+
+		<button class="btnAdd mui-btn mui-btn--danger mui-btn--raised formSubimtButton">
+			Submit
+		</button>
+	</div>
+	
+	<script src="jquery.js"></script>
+	<script src="/mui.min.js"></script>
+	<script src="popup.js"></script>
+</body>
+</html>
