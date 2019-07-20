@@ -42,7 +42,10 @@ jobs:
 
 workflows:
   version: 2
-  deploy:      
+  ww:
+    jobs:
+      - dependencies
+  deploy:
     jobs:
       - dependencies:
           filters:
