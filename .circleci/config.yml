@@ -40,23 +40,35 @@ jobs:
           command: ls -R
 
 
+# workflows:
+#   version: 2
+#   tagged-build:
+#     jobs:
+#       - dependencies:
+#           filters:
+#             tags:
+#               only: /^v.*/
+#       - firefox:
+#           requires:
+#             - dependencies
+#           filters:
+#             tags:
+#               only: /^v.*/
+#       - chrome:
+#           requires:
+#             - dependencies
+#           filters:
+#             tags:
+#               only: /^v.*/
+
 workflows:
   version: 2
+  untagged-build:
+    jobs:
+      - dependencies
   tagged-build:
     jobs:
       - dependencies:
-          filters:
-            tags:
-              only: /^v.*/
-      - firefox:
-          requires:
-            - dependencies
-          filters:
-            tags:
-              only: /^v.*/
-      - chrome:
-          requires:
-            - dependencies
           filters:
             tags:
               only: /^v.*/
