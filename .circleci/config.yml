@@ -42,10 +42,10 @@ jobs:
 
 workflows:
   version: 2
-  ww:
+  untagged-build:
     jobs:
       - dependencies
-  deploy:
+  tagged-build:
     jobs:
       - dependencies:
           filters:
