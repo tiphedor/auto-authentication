@@ -50,7 +50,7 @@ workflows:
       - dependencies:
           filters:
             tags:
-              only: /^v\d{1,}\.\d{1,}\.\d{1,}$/
+              only: /^v.*/
       - firefox:
           requires:
             - dependencies
