@@ -42,12 +42,21 @@ jobs:
 
 workflows:
   version: 2
-  deploy:
+  deploy:      
     jobs:
-      - dependencies
+      - dependencies:
+          filters:
+              tags:
+                only: ^v\d{1,}\.\d{1,}\.\d{1,}$
       - firefox:
+          filters:
+            tags:
+              only: ^v\d{1,}\.\d{1,}\.\d{1,}$
           requires:
             - dependencies
       - chrome:
+          filters:
+            tags:
+              only: ^v\d{1,}\.\d{1,}\.\d{1,}$
           requires:
             - dependencies
