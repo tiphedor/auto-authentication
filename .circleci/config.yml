@@ -19,7 +19,17 @@ jobs:
           root: ./
           paths:
             - ./
-  gecko:
+  firefox:
+    docker:
+      - image: node:10
+    steps:
+      - attach_workspace:
+          at: ./
+      - run:
+          name: testlol
+          command: ls -R
+
+  chrome:
     docker:
       - image: node:10
     steps:
@@ -35,6 +45,9 @@ workflows:
   deploy:
     jobs:
       - dependencies
-      - gecko:
+      - firefox:
+          requires:
+            - dependencies
+      - chrome:
           requires:
             - dependencies
