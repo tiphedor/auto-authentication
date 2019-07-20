@@ -44,7 +44,10 @@ workflows:
   version: 2
   tagged-build:
     jobs:
-      - dependencies
+      - dependencies:
+          filters:
+            tags:
+              only: /^v.*/
       - firefox:
           requires:
             - dependencies
