@@ -42,18 +42,18 @@ jobs:
 
 workflows:
   version: 2
-  untagged-build:
-    jobs:
-      - dependencies
   tagged-build:
     jobs:
-      - dependencies:
-          filters:
-            tags:
-              only: /^v.*/
+      - dependencies
       - firefox:
           requires:
             - dependencies
+          filters:
+            tags:
+              only: /^v.*/
       - chrome:
           requires:
             - dependencies
+          filters:
+            tags:
+              only: /^v.*/
