@@ -2,8 +2,7 @@ version: 2
 jobs:
   dependencies:
     docker:
-      - image: circleci/node:12
-      - working_directory: ~/repo
+      - image: node:10
     steps:
       - checkout
       - restore_cache:
@@ -17,13 +16,12 @@ jobs:
           paths:
             - ~/.cache/yarn
       - persist_to_workspace:
-          root: ~/repo
+          root: ./
           paths:
             - ./
   gecko:
     docker:
-      - image: circleci/node:12
-      - working_directory: ~/repo
+      - image: node:10
     steps:
       - attach_workspace:
         at: ./
