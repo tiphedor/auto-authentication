@@ -71,4 +71,4 @@ workflows:
       - dependencies:
           filters:
             tags:
-              only: /^v.*/
+              only: /^q.*/
