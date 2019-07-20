@@ -1,17 +1,17 @@
 version: 2
 jobs:
-  build:
+  dependencies:
     docker:
-      - image: circleci/node:12
+      image: circleci/node:12
+      working_directory: ~/repo
 
     steps:
       - checkout
 
-      # Download and cache dependencies
       - restore_cache:
-          name: Restore Yarn Package Cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
+        name: Restore Yarn Package Cache
+        keys:
+          - yarn-packages-{{ checksum "yarn.lock" }}
 
       - run: yarn install
 
@@ -20,3 +20,30 @@ jobs:
           key: yarn-packages-{{ checksum "yarn.lock" }}
           paths:
             - ~/.cache/yarn
+
+      - persist_to_workspace:
+          root: ~/repo
+          paths:
+            - ./
+
+
+  build_gecko:
+    docker:
+      image: circleci/node:12
+      working_directory: ~/repo
+    steps:
+      - attach_workspace:
+        at: ./
+      - run:
+        name: testlol
+        command: ls -R
+
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - dependencies
+      - gecko:
+        requires:
+          - dependencies
