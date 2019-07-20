@@ -24,10 +24,10 @@ jobs:
       - image: node:10
     steps:
       - attach_workspace:
-        at: ./
+          at: ./
       - run:
-        name: testlol
-        command: ls -R
+          name: testlol
+          command: ls -R
 
 
 workflows:
