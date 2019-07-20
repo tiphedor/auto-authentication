@@ -46,17 +46,11 @@ workflows:
     jobs:
       - dependencies:
           filters:
-              tags:
-                only: ^v\d{1,}\.\d{1,}\.\d{1,}$
-      - firefox:
-          filters:
             tags:
-              only: ^v\d{1,}\.\d{1,}\.\d{1,}$
+              only: /^v\d{1,}\.\d{1,}\.\d{1,}$/
+      - firefox:
           requires:
             - dependencies
       - chrome:
-          filters:
-            tags:
-              only: ^v\d{1,}\.\d{1,}\.\d{1,}$
           requires:
             - dependencies
