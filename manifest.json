@@ -15,5 +15,12 @@
 	},
 	"browser_action": {
 		"default_popup": "popup.html"
+	},
+
+	"browser_specific_settings": {
+		"gecko": {
+			"id": "autoauthentication@tiph.io",
+			"strict_min_version": "42.0"
+		}
 	}
 }
