@@ -63,9 +63,6 @@ jobs:
 
 workflows:
   version: 2
-  untagged-build:
-    jobs:
-      - dependencies
   tagged-build:
     jobs:
       - dependencies:
