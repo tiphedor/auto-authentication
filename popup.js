@@ -40,7 +40,7 @@ const updateUI = () => {
 			<div class="mui-row">
 				<div class="mui-panel tokenListItem">
 					<div class="mui-col-md-10">
-						<div class="tokenLabel">${token.url} - Basic Auth</div>
+						<div class="tokenLabel">${token.url || `/${token.regex}/`} - Basic Auth</div>
 					</div>
 					<div class="mui-col-md-2">
 						<button data-index='${i}' class="mui-btn mui-btn--danger btnDelete">delete</button>
@@ -70,14 +70,8 @@ $('.btnAdd').click(() => {
 
 	if (urlStr.startsWith('/') && urlStr.endsWith('/')) {
 		// User typed a regex (or something that looks like a regex)
-		try {
-			const parsedRegEx = new RegExp(urlStr)
-		} catch(e) {
-			console.log('invalid regex')
-			
-			$('.errorMessage').show()
-			setTimeout(() => $('.errorMessage').fadeOut(), 700)
-		}
+		const regexStr = urlStr.substring(1, urlStr.length - 1);
+		newToken.regex = regexStr
 	} else {
 		// Simple domain.
 		newToken.url = urlStr

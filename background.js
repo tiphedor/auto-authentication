@@ -14,7 +14,14 @@ chrome.storage.onChanged.addListener(function(changes, area) {
 
 // On each request ...
 chrome.webRequest.onBeforeSendHeaders.addListener(({ url, requestHeaders }) => {
-	const currentSiteToken = tokensList.filter(token => url.includes(token.url))[0]
+	const currentSiteToken = tokensList.filter(token => {
+		if (token.regex) {
+			const regex = new RegExp(tokensList[0].regex)
+			return regex.test(url)
+		} else {
+			return url.includes(token.url)
+		}
+	})[0]
 	
 	if (currentSiteToken) {
 		requestHeaders.push({
