@@ -1,7 +1,8 @@
 # auto-authentication
 
-![Image of Yaktocat](https://img.shields.io/chrome-web-store/v/iemlhflmgkgdhionodkeoljbkkgkmlnp.svg)
-[![Build Status](https://travis-ci.org/tiphedor/auto-authentication.svg?branch=master)](https://travis-ci.org/tiphedor/auto-authentication)
+
+
+[![ChromeVersion](https://img.shields.io/chrome-web-store/v/iemlhflmgkgdhionodkeoljbkkgkmlnp.svg)](https://chrome.google.com/webstore/detail/auto-authentication/iemlhflmgkgdhionodkeoljbkkgkmlnp)
 
 Chrome (for now...) extension that auto-authenticate basic auth / Header-based authentication.
 
